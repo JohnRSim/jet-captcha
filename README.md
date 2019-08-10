@@ -30,7 +30,7 @@ The webcomponent is a JET component that incorporates a Svelte JS amd compatible
 <jet-captcha size="S" debug="true" theme="flat" captcha-server="" on-failed-captcha="[[fail]]" on-passed-captcha="[[success]]"></jet-captcha>
 ```
 
-## Properties
+## Attributes
 
 - **size** controls the UI display
   - 'S' - Small
@@ -44,9 +44,6 @@ The webcomponent is a JET component that incorporates a Svelte JS amd compatible
 - **debug** only used by devs for testing tweaking server side algorithms.
   - false - Production
   - true - Disable interactive options
-
-## Events
-
 - **on-failed-captcha** - Emitted if user passes captcha bot detection tests.
 - **on-passed-captcha** - Emitted if user fails captcha bot detection tests.
 
