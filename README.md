@@ -70,7 +70,7 @@ The webcomponent is a JET component that incorporates a Svelte JS amd compatible
 3. Install dependencies `npm install`
 4. launch sample project `ojet serve`
 
-## Jet-composite location
+## JET-composite location
 [/src/js/jet-composites/jet-captcha](https://github.com/JohnRSim/jet-captcha/tree/master/src/js/jet-composites/jet-captcha).
 
 
