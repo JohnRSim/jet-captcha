@@ -1,10 +1,10 @@
 {
-  "name": "jet-captcha",
-  "version": "1.0.0",
-  "jetVersion": "^7.0.0",
-  "displayName": "JSE Captcha",
-  "description": "Gamified Captcha tool to help prevent bot access using JSEcoins bot algorith to detect bots",
-  "properties": {
+	"name": "jet-captcha",
+	"version": "1.0.0",
+	"jetVersion": "^7.0.0",
+	"displayName": "JSE Captcha",
+	"description": "Gamified Captcha tool to help prevent bot access using JSEcoins bot algorith to detect bots",
+	"properties": {
 		"size": {
 			"description": "Captcha size",
 			"type": "string"
@@ -21,14 +21,40 @@
 			"description": "For developers extending captcha both detection algorithm",
 			"type": "string"
 		}
-  },
-  "methods": {
-
-  }, 
-  "events": {
-
-  }, 
-  "slots": {
-
-  }
+	},
+	"methods": {},
+	"events": {
+		"passedCaptcha": {
+			"description": "emitted when user passes captcha",
+			"bubbles": false,
+			"cancelable": false,
+			"detail": {
+				"ip": {
+					"type": "string"
+				},
+				"rating": {
+					"type": "number"
+				},
+				"pass": {
+					"type": "boolean"
+				}
+			}
+		},
+		"failedCaptcha": {
+		  "description": "emitted whenbot detected and captcha failed",
+		  "bubbles": true,
+		  "detail": {
+			"ip": {
+				"type": "string"
+			},
+			"rating": {
+				"type": "number"
+			},
+			"pass": {
+				"type": "boolean"
+			}
+		  }
+		}
+	},
+	"slots": {}
 }

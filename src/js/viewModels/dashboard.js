@@ -13,6 +13,14 @@ define([
 
     function DashboardViewModel() {
       var self = this;
+
+      self.success = (e) => {
+        console.log('received success msg from CCA', e.detail);
+      };
+      
+      this.fail = (e) => {
+        console.log('received failed msg from CCA', e.detail);
+      };
       // Below are a set of the ViewModel methods invoked by the oj-module component.
       // Please reference the oj-module jsDoc for additional information.
 

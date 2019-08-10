@@ -82,17 +82,31 @@ define([
         return {
           /**
            * passedCaptcha
-           * @param {*} detail 
+           * @param {*} e 
            */
-          passedCaptcha(detail) {
-            console.log('passedCaptcha: ', detail);
+          passedCaptcha(e, composite) {
+            console.log('passedCaptcha: ', e.detail, this);
+            const eventParams = {
+              bubbles : false,
+              cancelable : false,
+              detail : e.detail,
+            };
+            //Raise the custom event
+            composite.dispatchEvent(new CustomEvent('passedCaptcha', eventParams));
           },
           /**
            * failedCaptcha
-           * @param {*} detail 
+           * @param {*} e 
            */
-          failedCaptcha(detail) {
-            console.log('failedCaptcha: ', detail);
+          failedCaptcha(e, composite) {
+            console.log('failedCaptcha: ', e.detail, this);
+            const eventParams = {
+              bubbles : false,
+              cancelable : false,
+              detail : e.detail,
+            };
+            //Raise the custom event
+            composite.dispatchEvent(new CustomEvent('failedCaptcha', eventParams));
           },
         };
       },
@@ -102,6 +116,15 @@ define([
        */
       connected(context) {
         console.info('[CCA][jet-captcha][connected]', context, this);
+        const self = this;
+        
+        //setup events from JSE-captcha passthrough
+        context.element.querySelector('jse-captcha').$on('success', (e) => {
+          self.passedCaptcha(e, context.element);
+        });
+        context.element.querySelector('jse-captcha').$on('fail', (e) => {
+          self.failedCaptcha(e, context.element);
+        });
 
         /**
          * FYI
