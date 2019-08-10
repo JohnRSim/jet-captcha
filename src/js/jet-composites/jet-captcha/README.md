@@ -4,10 +4,10 @@ CAPTCHA interface for bot detection
 ### DOM
 
 ```html
- <jet-captcha size="S" debug="true" theme="flat" captcha-server=""></jet-captcha>
+<jet-captcha size="S" debug="true" theme="flat" captcha-server="" on-failed-captcha="[[fail]]" on-passed-captcha="[[success]]"></jet-captcha>
 ```
 
-## Properties
+## Attributes
 
 - **size** controls the UI display
   - 'S' - Small
@@ -21,7 +21,8 @@ CAPTCHA interface for bot detection
 - **debug** only used by devs for testing tweaking server side algorithms.
   - false - Production
   - true - Disable interactive options
-  
+- **on-failed-captcha** emitted failed captcha event
+- **on-passed-captcha** emitted passed captcha event
  
 ## Usage
 Refer to the oj.Composite jsdoc
