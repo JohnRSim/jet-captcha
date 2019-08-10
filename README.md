@@ -27,7 +27,7 @@ The webcomponent is a JET component that incorporates a Svelte JS amd compatible
 
 ### DOM
 ```html
- <jet-captcha size="S" debug="true" theme="flat" captcha-server=""></jet-captcha>
+<jet-captcha size="S" debug="true" theme="flat" captcha-server="" on-failed-captcha="[[fail]]" on-passed-captcha="[[success]]"></jet-captcha>
 ```
 
 ## Properties
@@ -47,19 +47,19 @@ The webcomponent is a JET component that incorporates a Svelte JS amd compatible
 
 ## Events
 
-- **success** - Emitted if user passes captcha bot detection tests.
-- **fail** - Emitted if user fails captcha bot detection tests.
+- **on-failed-captcha** - Emitted if user passes captcha bot detection tests.
+- **on-passed-captcha** - Emitted if user fails captcha bot detection tests.
 
 ## Event Response (JSON)
 
 #### Success
 ```json
-{"success":1,"rating":87,"pass":true,"knownIP":true, "ip":"148.252.129.187"}
+{"rating":87,"pass":true, "ip":"148.252.129.187"}
 ```
 
 #### Fail
 ```json
-{"success":1,"rating":0,"pass":false,"knownIP":false, "ip":"148.252.129.187"}
+{"rating":0,"pass":false, "ip":"148.252.129.187"}
 ```
 
 ## Developers
