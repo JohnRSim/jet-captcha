@@ -1,0 +1,34 @@
+{
+  "name": "jet-captcha",
+  "version": "1.0.0",
+  "jetVersion": "^7.0.0",
+  "displayName": "JSE Captcha",
+  "description": "Gamified Captcha tool to help prevent bot access using JSEcoins bot algorith to detect bots",
+  "properties": {
+		"size": {
+			"description": "Captcha size",
+			"type": "string"
+		},
+		"theme": {
+			"description": "theme to use ['flat','']",
+			"type": "string"
+		},
+		"debug": {
+			"description": "Enable debug mode user interface",
+			"type": "string"
+		},
+		"captchaServer": {
+			"description": "For developers extending captcha both detection algorithm",
+			"type": "string"
+		}
+  },
+  "methods": {
+
+  }, 
+  "events": {
+
+  }, 
+  "slots": {
+
+  }
+}

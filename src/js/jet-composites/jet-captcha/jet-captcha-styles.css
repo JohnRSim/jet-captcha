@@ -1,0 +1,8 @@
+jet-captcha:not(.oj-complete){
+  visibility: hidden;
+}
+
+jet-captcha{
+	min-height: 50px;
+	width: 50px;
+}

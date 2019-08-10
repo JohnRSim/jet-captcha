@@ -1,0 +1,13 @@
+
+<jse-captcha on:success="{() => { console.log('should work')}}" on:fail="{() => { console.log('huh')}}"
+    data-bind="
+        attr: {
+            size: $props.size,
+            debug: $props.debug,
+            theme: $props.theme,
+            captchaServer: $props.captchaServer
+        }"
+></jse-captcha>
+
+
+<div id="captcha"></div>
