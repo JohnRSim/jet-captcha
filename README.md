@@ -7,8 +7,7 @@
 We are still working on the interface and know there are still a number of bugs and cross browser issues - please be patient..
 
 ## Overview
-JET-Captcha is a webcomponent designed to be used with other Oracle JET projects. 
-And provides first level of defence against automated bot requests.
+JET-Captcha is a webcomponent designed to be used with other Oracle JET projects - and provides first level of defence against automated bot requests.
 
 JSEcoin servers provides the endpoint to query against to confirm the likelyhood of an automated request.
 
@@ -26,7 +25,7 @@ https://api.jsecoin.com/captcha/check/:ipAddress/
 ## Technology:
 The webcomponent is a JET component that incorporates a Svelte JS amd compatible library https://github.com/JSEcoin/captcha which is used to build the interface.
 
-### 1. DOM
+### DOM
 ```html
  <jet-captcha size="S" debug="true" theme="flat" captcha-server=""></jet-captcha>
 ```
@@ -69,7 +68,7 @@ The webcomponent is a JET component that incorporates a Svelte JS amd compatible
 1. Install [Node.js](https://nodejs.org) v8.0.0 or higher.
 2. Clone this repository: `git clone https://github.com/JohnRSim/jet-captcha`
 3. Install dependencies `npm install`
-4. ojet serve
+4. launch sample project `ojet serve`
 
 ## Jet-composite location
 [/src/js/jet-composites/jet-captcha](https://github.com/JohnRSim/jet-captcha/tree/master/src/js/jet-composites/jet-captcha).
