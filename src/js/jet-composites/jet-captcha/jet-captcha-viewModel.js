@@ -8,13 +8,17 @@
 
 define([
   'knockout',
-  'ojL10n!./resources/nls/jet-captcha-strings',
+  //'ojL10n!./resources/nls/jet-captcha-strings',
+  'ojs/ojlogger',
   './lib/jsecaptcha.amd.min' // https://github.com/JSEcoin/captcha/blob/master/dist/jsecaptcha.amd.min.js
 ], (
   ko,
-  componentStrings,
-  jCaptcha,
+  log,
+  //componentStrings,
+  //jCaptcha,
 ) => {
+  log.option("level",  3);
+  
 
   /**
    * Define global namespace for CCA component
@@ -40,7 +44,7 @@ define([
        * @param {*} context 
        */
       created(context) {
-        console.info('[CCA][jet-captcha][created]', context, this);
+        log.info('[CCA][jet-captcha][created]', context, this);
         const self = this;
 
         //required: define init methods core functionality 
@@ -49,13 +53,13 @@ define([
         }
 
         //At the start of your viewModel constructor
-        const busyContext = oj.Context.getContext(context.element).getBusyContext();
-        const options = { 'description': 'CCA Startup - Waiting for data' };
-        self.busyResolve = busyContext.addBusyState(options);
+        //const busyContext = oj.Context.getContext(context.element).getBusyContext();
+        //const options = { 'description': 'CCA Startup - Waiting for data' };
+        //self.busyResolve = busyContext.addBusyState(options);
 
         self.composite = context.element;
         self.properties = context.properties;
-        self.res = componentStrings['jet-captcha'];
+        //self.res = componentStrings['jet-captcha'];
 
         // Example for parsing context properties
         // if (context.properties.name) {
@@ -63,7 +67,7 @@ define([
         // }
 
         //Once all startup and async activities have finished, relocate if there are any async activities
-        self.busyResolve();
+        //self.busyResolve();
       },
 
       /**
@@ -115,16 +119,9 @@ define([
        * connected
        */
       connected(context) {
-        console.info('[CCA][jet-captcha][connected]', context, this);
+        log.info('[CCA][jet-captcha][connected]', context, this);
         const self = this;
-        
-        //setup events from JSE-captcha passthrough
-        context.element.querySelector('jse-captcha').$on('success', (e) => {
-          self.passedCaptcha(e, context.element);
-        });
-        context.element.querySelector('jse-captcha').$on('fail', (e) => {
-          self.failedCaptcha(e, context.element);
-        });
+
 
         /**
          * FYI
@@ -153,6 +150,18 @@ define([
         */
         
       },
+      bindingsApplied(context) {
+        log.info('[CCA][jet-captcha][bindingsApplied]', context, this);
+        const self = this;
+        
+        //setup events from JSE-captcha passthrough
+        context.element.querySelector('jse-captcha').$on('success', (e) => {
+          self.passedCaptcha(e, context.element);
+        });
+        context.element.querySelector('jse-captcha').$on('fail', (e) => {
+          self.failedCaptcha(e, context.element);
+        });
+      },
     };
   })();
 
@@ -161,7 +170,7 @@ define([
    * @param {*} context 
    */
   function JETcaptcha(context) {
-    console.log('[CCA][jet-captcha][Model]', context, this);
+    log.info('[CCA][jet-captcha][Model]', context, this);
 
     const self = this;
 
@@ -181,9 +190,8 @@ define([
     Object.assign(self, modelFuncs);
 
     // Add CCA event listener support
-    self.connected = global.connected;
-
-    //self.bindingsApplied = global.bindingsApplied;
+    //self.connected = global.connected;
+    self.bindingsApplied = global.bindingsApplied;
     //self.disconnect = global.disconnect;
     //self.propertyChanged = global.propertyChanged;
     //self.activated = global.activated;
