@@ -7,15 +7,18 @@
 	"properties": {
 		"size": {
 			"description": "Captcha size",
-			"type": "string"
+			"type": "string",
+			"enumValues": ["S","M","L"] 
 		},
 		"theme": {
 			"description": "theme to use ['flat','']",
-			"type": "string"
+			"type": "string",
+			"enumValues": ["","flat"] 
 		},
 		"debug": {
 			"description": "Enable debug mode user interface",
-			"type": "string"
+			"type": "string",
+			"enumValues": ["false","true"] 
 		},
 		"captchaServer": {
 			"description": "For developers extending captcha both detection algorithm",
