@@ -1,10 +1,6 @@
 
-<jse-captcha
-    data-bind="
-        attr: {
-            size: $props.size,
-            debug: $props.debug,
-            theme: $props.theme,
-            captchaServer: $props.captchaServer
-        }"
-></jse-captcha>
+<jse-captcha 
+    :size="[[$properties.size]]" 
+    :debug="[[$properties.debug]]" 
+    :theme="[[$properties.theme]]" 
+    :captchaServer="[[$properties.captchaServer]]"></jse-captcha>
